@@ -5,11 +5,11 @@ describe MDS::Services::ShippingStatus::Tracking do
 
   describe '#query' do
     it 'returns a success response' do
-      VCR.use_cassette("tracking_spec", record: :all) do
+      VCR.use_cassette("tracking_spec") do
         response = subject.query
 
         expect(response.success?).to eq true
-        expect(response.message).to eq "0 shipments were received."
+        expect(response.message).to eq "5 shipments were received."
       end
     end
   end
