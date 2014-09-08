@@ -20,12 +20,13 @@ module MDS
       def initialize(credentials)
         @client_code = credentials.fetch(:client_code)
         @client_signature = credentials.fetch(:client_signature)
+        @test_mode = credentials.fetch(:test_mode, "true")
       end
 
       def query(object = {})
         puts payload = builder(object).to_xml
         puts '-' * 77
-        puts xml_response = HTTParty.get("http://webservice-dev.mdsfulfillment.com/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload))
+        puts xml_response = HTTParty.get("#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload))
         build_response_instance(xml_response)
       end
 
@@ -45,6 +46,12 @@ module MDS
             yield(xml)
           end
         end
+      end
+
+      def mds_url
+        @test_mode == "true" ?
+          "http://webservice-dev.mdsfulfillment.com" :
+          "https://webservice.mdsfulfillment.com"
       end
     end
   end
