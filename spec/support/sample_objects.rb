@@ -2,7 +2,7 @@ def sample_credentials
   {
     "client_code"=>"TESTING_CODE_HERE",
     "client_signature"=>"TESTING_SIGNATURE_HERE",
-    "test_mode"=>"true"
+    "test_mode"=>"1"
   }.with_indifferent_access
 end
 

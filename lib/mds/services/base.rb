@@ -20,7 +20,7 @@ module MDS
       def initialize(credentials)
         @client_code = credentials.fetch(:client_code)
         @client_signature = credentials.fetch(:client_signature)
-        @test_mode = credentials.fetch(:test_mode, "true")
+        @test_mode = credentials.fetch(:test_mode, "1")
       end
 
       def query(object = {})
@@ -49,7 +49,7 @@ module MDS
       end
 
       def mds_url
-        @test_mode == "true" ?
+        @test_mode == "1" ?
           "http://webservice-dev.mdsfulfillment.com" :
           "https://webservice.mdsfulfillment.com"
       end
