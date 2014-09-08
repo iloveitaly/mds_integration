@@ -17,12 +17,12 @@ describe MDSIntegration do
       {
         request_id: '1234567',
         parameters: sample_credentials,
-        order: sample_order("R788698")
+        order: sample_order
       }
     end
 
     it 'returns a notification' do
-      VCR.use_cassette("submit_order_spec_new_order") do
+      VCR.use_cassette("mds_integration_add_shipment") do
         post '/add_shipment', request.to_json, {}
 
         expect(last_response.status).to eq 200
@@ -43,7 +43,7 @@ describe MDSIntegration do
 
   describe 'POST /get_inventory' do
     it 'returns a notification' do
-      VCR.use_cassette("full_inventory_spec") do
+      VCR.use_cassette("mds_integration_get_inventory") do
         post '/get_inventory', request.to_json, {}
 
         expect(last_response.status).to eq 200

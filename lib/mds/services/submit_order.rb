@@ -44,7 +44,7 @@ module MDS
 
       def build_products(xml, order)
         order[:line_items].each_with_index do |line_item, index|
-          xml.Line(number: index) do
+          xml.Line(number: index + 1) do
             xml.RetailerItemID  line_item[:product_id]
             xml.CUSTItemID      line_item[:product_id]
             xml.UPC             line_item[:product_id]

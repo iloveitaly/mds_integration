@@ -19,13 +19,13 @@ http_interactions:
       Server:
       - Microsoft-IIS/8.0
       Set-Cookie:
-      - ASP.NET_SessionId=k5ez4wdaijrjre5lk5gnzgeq; path=/; HttpOnly
+      - ASP.NET_SessionId=mk1wmvjjtg2va5bsmssfd5rf; path=/; HttpOnly
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 08 Sep 2014 17:55:17 GMT
+      - Mon, 08 Sep 2014 17:55:15 GMT
       Content-Length:
       - '15790'
     body:
@@ -383,5 +383,5 @@ http_interactions:
         RGF0ZT48L01mZ0RhdGU+DQogICAgPExvdD48L0xvdD4NCiAgICA8QWN0aXZl
         Plk8L0FjdGl2ZT4NCiAgPC9TS1VMaW5lPg0KPC9TS1VGdWxsQWNrPg==
     http_version: 
-  recorded_at: Mon, 08 Sep 2014 17:55:20 GMT
+  recorded_at: Mon, 08 Sep 2014 17:55:18 GMT
 recorded_with: VCR 2.6.0
