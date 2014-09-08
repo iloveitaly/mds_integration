@@ -6,7 +6,7 @@ describe MDS::Services::SubmitOrder do
   describe '#query' do
     it 'returns a success response' do
       VCR.use_cassette("submit_order_spec_new_order") do
-        response = subject.query(sample_order)
+        response = subject.query(sample_order("R123NEW"))
 
         expect(response.success?).to eq true
         expect(response.message).to match /was received by MDS Fulfillment/
