@@ -17,7 +17,7 @@ describe MDSIntegration do
       {
         request_id: '1234567',
         parameters: sample_credentials,
-        order: sample_shipment("R123NEW2")
+        shipment: sample_shipment("R123NEW2")
       }
     end
 

@@ -7,7 +7,7 @@ class MDSIntegration < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/add_shipment' do
-    response = MDS::Services::SubmitOrder.new(@config).query(@payload[:order])
+    response = MDS::Services::SubmitOrder.new(@config).query(@payload[:shipment])
 
     result status_from_response(response), response.message
   end
