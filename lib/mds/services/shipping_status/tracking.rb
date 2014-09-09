@@ -9,7 +9,7 @@ module MDS
 
         def builder(_)
           xml_builder do |xml|
-            xml.Days '100'
+            xml.Days '3'
           end
         end
       end

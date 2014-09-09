@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://webservice-dev.mdsfulfillment.com/mds.shipping.Tracking/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22?%3E%0A%3CMDSShippingTracking%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3CDays%3E100%3C/Days%3E%0A%3C/MDSShippingTracking%3E%0A
+    uri: http://webservice-dev.mdsfulfillment.com/mds.shipping.Tracking/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22?%3E%0A%3CMDSShippingTracking%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3CDays%3E3%3C/Days%3E%0A%3C/MDSShippingTracking%3E%0A
     body:
       encoding: US-ASCII
       string: ''
@@ -58,6 +58,6 @@ http_interactions:
         aWNlVHlwZT4NCiAgICA8VHJhY2tpbmdOdW1iZXI+VFJBQ0sgNzU3ODc4PC9U
         cmFja2luZ051bWJlcj4NCiAgICA8V2VpZ2h0PjAgICAgPC9XZWlnaHQ+DQog
         IDwvT3JkZXI+DQo8L1NoaXBwaW5nU0tVQWNrPg==
-    http_version: 
+    http_version:
   recorded_at: Mon, 08 Sep 2014 19:37:25 GMT
 recorded_with: VCR 2.6.0
