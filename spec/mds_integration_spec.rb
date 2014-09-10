@@ -29,6 +29,18 @@ describe MDSIntegration do
         expect(json_response["summary"]).to match /was received by MDS Fulfillment./
       end
     end
+
+    context 'shipped shipment' do
+      it 'is ignored' do
+        shipped_request = request
+        shipped_request[:shipment][:status] = "shipped"
+
+        post '/add_shipment', request.to_json, {}
+
+        expect(last_response.status).to eq 200
+        expect(json_response["summary"]).to match /Ignoring shipment R123NEW2, it's already shipped/
+      end
+    end
   end
 
   describe 'POST /get_shipments' do

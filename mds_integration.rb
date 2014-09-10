@@ -7,9 +7,13 @@ class MDSIntegration < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/add_shipment' do
-    response = MDS::Services::SubmitOrder.new(@config).query(@payload[:shipment])
+    if @payload[:shipment][:status] == "shipped"
+      result 200, "Ignoring shipment #{@payload[:shipment][:id]}, it's already shipped."
+    else
+      response = MDS::Services::SubmitOrder.new(@config).query(@payload[:shipment])
 
-    result status_from_response(response), response.message
+      result status_from_response(response), response.message
+    end
   end
 
   post '/get_shipments' do
