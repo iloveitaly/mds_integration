@@ -7,9 +7,15 @@ module MDS
         set_xml_root    'MDSShippingTracking'
         set_url_package 'mds.shipping.Tracking'
 
+        def initialize(config)
+          super
+
+          @number_of_days = config[:number_of_days] || 3
+        end
+
         def builder(_)
           xml_builder do |xml|
-            xml.Days '3'
+            xml.Days @number_of_days.to_s
           end
         end
       end

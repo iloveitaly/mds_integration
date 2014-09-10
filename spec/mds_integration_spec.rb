@@ -46,6 +46,9 @@ describe MDSIntegration do
   describe 'POST /get_shipments' do
     it 'returns a notification' do
       VCR.use_cassette("mds_integration_get_shipments") do
+        get_shipments_request = request
+        get_shipments_request[:parameters]["number_of_days"] = 3
+
         post '/get_shipments', request.to_json, {}
 
         expect(last_response.status).to eq 200
