@@ -22,18 +22,13 @@ module MDS
             xml.ShipZip         shipment[:shipping_address][:zipcode]
             xml.ShipEmail       shipment[:email]
             xml.ShipPhone       shipment[:shipping_address][:phone]
-            xml.Billname        "#{shipment[:billing_address][:firstname]} #{shipment[:billing_address][:lastname]}"
-            xml.BillAddress1    shipment[:billing_address][:address1]
-            xml.BillAddress2    shipment[:billing_address][:address2]
-            xml.BillCity        shipment[:billing_address][:city]
-            xml.BillState       shipment[:billing_address][:state]
-            xml.BillCountry     shipment[:billing_address][:country]
-            xml.BillZip         shipment[:billing_address][:zipcode]
+
+            setup_billing_information(xml, shipment)
+
             xml.CSEmail         shipment[:email]
             xml.CSPhone         shipment[:shipping_address][:phone]
-            xml.ShippingCharge  shipment[:totals][:shipping]
-            xml.ShippingTax     shipment[:totals][:tax]
-            xml.ShippingTotal   shipment[:totals][:shipping]
+
+            setup_totals(xml, shipment[:totals])
 
             xml.Lines do
               build_products(xml, shipment)
@@ -52,6 +47,26 @@ module MDS
             xml.PricePerUnit    line_item[:price]
           end
         end
+      end
+
+      def setup_totals(xml, totals)
+        totals = totals || {}
+
+        xml.ShippingCharge  totals[:shipping] || 0
+        xml.ShippingTax     totals[:tax]      || 0
+        xml.ShippingTotal   totals[:shipping] || 0
+      end
+
+      def setup_billing_information(xml, shipment)
+        billing_address = shipment[:billing_address] || shipment[:shipping_address]
+
+        xml.Billname        "#{billing_address[:firstname]} #{billing_address[:lastname]}"
+        xml.BillAddress1    billing_address[:address1]
+        xml.BillAddress2    billing_address[:address2]
+        xml.BillCity        billing_address[:city]
+        xml.BillState       billing_address[:state]
+        xml.BillCountry     billing_address[:country]
+        xml.BillZip         billing_address[:zipcode]
       end
     end
   end

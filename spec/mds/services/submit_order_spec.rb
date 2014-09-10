@@ -23,5 +23,32 @@ describe MDS::Services::SubmitOrder do
         end
       end
     end
+
+    context 'missing totals' do
+      it 'uses 0 as value' do
+        VCR.use_cassette("submit_order_spec_no_totals") do
+          shipment = sample_shipment("R493330")
+          shipment.delete("totals")
+
+          response = subject.query(shipment)
+
+          expect(response.success?).to eq true
+          expect(response.message).to match /was received by MDS Fulfillment/
+        end
+      end
+    end
+
+    context 'missing billing_address' do
+      it 'uses shipping_address as billing_address' do
+        VCR.use_cassette("submit_order_spec_no_billing_address") do
+          shipment = sample_shipment("R357790")
+          shipment.delete("billing_address")
+
+          response = subject.query(shipment)
+          expect(response.success?).to eq true
+          expect(response.message).to match /was received by MDS Fulfillment/
+        end
+      end
+    end
   end
 end
