@@ -1,9 +1,17 @@
 def sample_credentials
-  {
-    "client_code"=>"TESTING_CODE_HERE",
-    "client_signature"=>"TESTING_SIGNATURE_HERE",
-    "test_mode"=>"1"
-  }.with_indifferent_access
+  saved_credentials.merge({ "test_mode"=>"1" }).with_indifferent_access
+end
+
+def saved_credentials
+  begin
+    # Add your testing credentials to credentials.yml
+    YAML.load_file("credentials.yml")
+  rescue Errno::ENOENT
+    {
+      "client_code"=>"client_code",
+      "client_signature"=>"client_signature"
+    }
+  end
 end
 
 def sample_shipment(number = "R#{rand(999999)}")
