@@ -12,14 +12,14 @@ describe MDS::Responses::ShippingSKUAck do
 <ROOT>
   <Order>
     <OrderID>R123</OrderID>
-    <OrderShipDate>4/11/2014</OrderShipDate>
+    <OrderShipDate>4/19/2014</OrderShipDate>
     <ServiceType>FedEx SmartPost</ServiceType>
     <TrackingNumber>123TRACKING</TrackingNumber>
     <Weight>0</Weight>
   </Order>
   <Order>
     <OrderID>R456</OrderID>
-    <OrderShipDate>4/11/2014</OrderShipDate>
+    <OrderShipDate>4/19/2014</OrderShipDate>
     <ServiceType>FedEx SmartPost</ServiceType>
     <TrackingNumber>1234ABCD</TrackingNumber>
     <Weight>0</Weight>
@@ -36,12 +36,12 @@ EOF
       expect(objects[0][:id]).to eq "R123"
       expect(objects[0][:status]).to eq "shipped"
       expect(objects[0][:tracking]).to eq "123TRACKING"
-      expect(objects[0][:shipped_at].month).to eq 11
+      expect(objects[0][:shipped_at].month).to eq 4
 
       expect(objects[1][:id]).to eq "R456"
       expect(objects[1][:status]).to eq "shipped"
       expect(objects[1][:tracking]).to eq "1234ABCD"
-      expect(objects[1][:shipped_at].month).to eq 11
+      expect(objects[1][:shipped_at].month).to eq 4
     end
 
     it 'returns a friendly message' do
