@@ -16,7 +16,9 @@ module MDS
       end
 
       def objects
-        Array(body["Order"]).map do |order|
+        orders = body['Order'].is_a?(Hash) ? [body['Order']] : body['Order']
+
+        orders.to_a.map do |order|
           {
             id: order["OrderID"],
             status: "shipped",
