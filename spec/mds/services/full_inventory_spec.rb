@@ -9,7 +9,7 @@ describe MDS::Services::FullInventory do
         response = subject.query
 
         expect(response.success?).to eq true
-        expect(response.message).to eq "Inventory for 93 products was received."
+        expect(response.message).to eq "Inventory for 158 products was received."
       end
     end
   end

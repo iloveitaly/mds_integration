@@ -41,7 +41,7 @@ module MDS
       end
 
       def xml_builder
-        Nokogiri::XML::Builder.new do |xml|
+        Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
           xml.send(self.class.xml_root, 'xml:lang' => 'en-US') do
             xml.ClientCode @client_code
             xml.ClientSignature @client_signature

@@ -17,7 +17,7 @@ describe MDSIntegration do
       {
         request_id: '1234567',
         parameters: sample_credentials,
-        shipment: sample_shipment("R123NEW2")
+        shipment: sample_shipment("R123NEW21")
       }
     end
 
@@ -38,7 +38,7 @@ describe MDSIntegration do
         post '/add_shipment', request.to_json, {}
 
         expect(last_response.status).to eq 200
-        expect(json_response["summary"]).to match /Ignoring shipment R123NEW2, it's already shipped/
+        expect(json_response["summary"]).to match /Ignoring shipment R123NEW21, it's already shipped/
       end
     end
   end
@@ -68,7 +68,7 @@ describe MDSIntegration do
         expect(json_response["inventories"][0]["id"]).to eq "QTRANM03"
         expect(json_response["inventories"][0]["location"]).to eq "MDS"
         expect(json_response["inventories"][0]["product_id"]).to eq "QTRANM03"
-        expect(json_response["inventories"][0]["quantity"]).to eq 500
+        expect(json_response["inventories"][0]["quantity"]).to eq 488
       end
     end
   end

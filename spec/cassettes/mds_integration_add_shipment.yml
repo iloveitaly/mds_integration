@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://webservice-dev.mdsfulfillment.com/mds.order/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22?%3E%0A%3CMDSOrder%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3COrder%3E%0A%20%20%20%20%3COrderID%3ER123NEW2%3C/OrderID%3E%0A%20%20%20%20%3CConsumerPONum%3ER123NEW2%3C/ConsumerPONum%3E%0A%20%20%20%20%3COrderDate%3E2014-02-03T17:29:15.219Z%3C/OrderDate%3E%0A%20%20%20%20%3CShippingMethod%3EUS%20UPS%20Two%20Day%3C/ShippingMethod%3E%0A%20%20%20%20%3CShipname%3EJoe%20Smith%3C/Shipname%3E%0A%20%20%20%20%3CShipAddress1%3E1234%20Awesome%20Street%3C/ShipAddress1%3E%0A%20%20%20%20%3CShipAddress2/%3E%0A%20%20%20%20%3CShipCity%3EHollywood%3C/ShipCity%3E%0A%20%20%20%20%3CShipState%3ECalifornia%3C/ShipState%3E%0A%20%20%20%20%3CShipCountry%3EUS%3C/ShipCountry%3E%0A%20%20%20%20%3CShipZip%3E90210%3C/ShipZip%3E%0A%20%20%20%20%3CShipEmail%3Espree@example.com%3C/ShipEmail%3E%0A%20%20%20%20%3CShipPhone%3E0000000000%3C/ShipPhone%3E%0A%20%20%20%20%3CBillname%3EJoe%20Smith%3C/Billname%3E%0A%20%20%20%20%3CBillAddress1%3E1234%20Awesome%20Street%3C/BillAddress1%3E%0A%20%20%20%20%3CBillAddress2/%3E%0A%20%20%20%20%3CBillCity/%3E%0A%20%20%20%20%3CBillState%3ECalifornia%3C/BillState%3E%0A%20%20%20%20%3CBillCountry%3EUS%3C/BillCountry%3E%0A%20%20%20%20%3CBillZip%3E90210%3C/BillZip%3E%0A%20%20%20%20%3CCSEmail%3Espree@example.com%3C/CSEmail%3E%0A%20%20%20%20%3CCSPhone%3E0000000000%3C/CSPhone%3E%0A%20%20%20%20%3CShippingCharge%3E10%3C/ShippingCharge%3E%0A%20%20%20%20%3CShippingTax%3E10%3C/ShippingTax%3E%0A%20%20%20%20%3CShippingTotal%3E10%3C/ShippingTotal%3E%0A%20%20%20%20%3CLines%3E%0A%20%20%20%20%20%20%3CLine%20number=%221%22%3E%0A%20%20%20%20%20%20%20%20%3CRetailerItemID%3EQTRZIM03%3C/RetailerItemID%3E%0A%20%20%20%20%20%20%20%20%3CCUSTItemID%3EQTRZIM03%3C/CUSTItemID%3E%0A%20%20%20%20%20%20%20%20%3CUPC%3EQTRZIM03%3C/UPC%3E%0A%20%20%20%20%20%20%20%20%3CQty%3E2%3C/Qty%3E%0A%20%20%20%20%20%20%20%20%3CPricePerUnit%3E100%3C/PricePerUnit%3E%0A%20%20%20%20%20%20%3C/Line%3E%0A%20%20%20%20%3C/Lines%3E%0A%20%20%3C/Order%3E%0A%3C/MDSOrder%3E%0A
+    uri: http://webservice-dev.mdsfulfillment.com/mds.order/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22%20encoding=%22UTF-8%22?%3E%0A%3CMDSOrder%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3COrder%3E%0A%20%20%20%20%3COrderID%3ER123NEW21%3C/OrderID%3E%0A%20%20%20%20%3CConsumerPONum%3ER123NEW21%3C/ConsumerPONum%3E%0A%20%20%20%20%3COrderDate%3E2014-02-03T17:29:15.219Z%3C/OrderDate%3E%0A%20%20%20%20%3CShippingMethod%3EUS%20UPS%20Two%20Day%3C/ShippingMethod%3E%0A%20%20%20%20%3CShipname%3EJoe%20Smith%3C/Shipname%3E%0A%20%20%20%20%3CShipAddress1%3E1234%20Awesome%20Street%3C/ShipAddress1%3E%0A%20%20%20%20%3CShipAddress2/%3E%0A%20%20%20%20%3CShipCity%3EHollywood%3C/ShipCity%3E%0A%20%20%20%20%3CShipState%3ECalifornia%3C/ShipState%3E%0A%20%20%20%20%3CShipCountry%3EUS%3C/ShipCountry%3E%0A%20%20%20%20%3CShipZip%3E90210%3C/ShipZip%3E%0A%20%20%20%20%3CShipEmail%3Espree@example.com%3C/ShipEmail%3E%0A%20%20%20%20%3CShipPhone%3E0000000000%3C/ShipPhone%3E%0A%20%20%20%20%3CBillname%3EJoe%20Smith%3C/Billname%3E%0A%20%20%20%20%3CBillAddress1%3E1234%20Awesome%20Street%3C/BillAddress1%3E%0A%20%20%20%20%3CBillAddress2/%3E%0A%20%20%20%20%3CBillCity/%3E%0A%20%20%20%20%3CBillState%3ECalifornia%3C/BillState%3E%0A%20%20%20%20%3CBillCountry%3EUS%3C/BillCountry%3E%0A%20%20%20%20%3CBillZip%3E90210%3C/BillZip%3E%0A%20%20%20%20%3CCSEmail%3Espree@example.com%3C/CSEmail%3E%0A%20%20%20%20%3CCSPhone%3E0000000000%3C/CSPhone%3E%0A%20%20%20%20%3CShippingCharge%3E10%3C/ShippingCharge%3E%0A%20%20%20%20%3CShippingTax%3E10%3C/ShippingTax%3E%0A%20%20%20%20%3CShippingTotal%3E10%3C/ShippingTotal%3E%0A%20%20%20%20%3CLines%3E%0A%20%20%20%20%20%20%3CLine%20number=%221%22%3E%0A%20%20%20%20%20%20%20%20%3CRetailerItemID%3EQTRZIM03%3C/RetailerItemID%3E%0A%20%20%20%20%20%20%20%20%3CCUSTItemID%3EQTRZIM03%3C/CUSTItemID%3E%0A%20%20%20%20%20%20%20%20%3CUPC%3EQTRZIM03%3C/UPC%3E%0A%20%20%20%20%20%20%20%20%3CQty%3E2%3C/Qty%3E%0A%20%20%20%20%20%20%20%20%3CPricePerUnit%3E100%3C/PricePerUnit%3E%0A%20%20%20%20%20%20%3C/Line%3E%0A%20%20%20%20%3C/Lines%3E%0A%20%20%3C/Order%3E%0A%3C/MDSOrder%3E%0A
     body:
       encoding: US-ASCII
       string: ''
@@ -18,25 +18,71 @@ http_interactions:
       - text/html; charset=utf-8
       Server:
       - Microsoft-IIS/8.0
+      Set-Cookie:
+      - ASP.NET_SessionId=yumw11e345d3qkps52mqgho5; path=/; HttpOnly
       X-Aspnet-Version:
       - 4.0.30319
-      Set-Cookie:
-      - ASP.NET_SessionId=yyvyzddefj2p4rqlvmx2wadf; path=/; HttpOnly
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 08 Sep 2014 17:59:38 GMT
+      - Tue, 30 Sep 2014 17:45:44 GMT
       Content-Length:
-      - '257'
+      - '258'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxD
         VVNUT3JkZXJBY2s+DQogIDxPcmRlckFjaz4NCiAgICA8T3JkZXJJRD5SMTIz
-        TkVXMjwvT3JkZXJJRD4NCiAgICA8U3lzdGVtPjwvU3lzdGVtPg0KICAgIDxS
-        ZXN1bHQ+MTwvUmVzdWx0Pg0KICAgIDxNZXNzYWdlPkV2ZXJ5dGhpbmcgaXMg
-        Z29vZC48L01lc3NhZ2U+DQogICAgPExpbmVDb3VudD4xPC9MaW5lQ291bnQ+
-        DQogIDwvT3JkZXJBY2s+DQo8L0NVU1RPcmRlckFjaz4=
-    http_version: 
-  recorded_at: Mon, 08 Sep 2014 17:59:40 GMT
+        TkVXMjE8L09yZGVySUQ+DQogICAgPFN5c3RlbT48L1N5c3RlbT4NCiAgICA8
+        UmVzdWx0PjE8L1Jlc3VsdD4NCiAgICA8TWVzc2FnZT5FdmVyeXRoaW5nIGlz
+        IGdvb2QuPC9NZXNzYWdlPg0KICAgIDxMaW5lQ291bnQ+MTwvTGluZUNvdW50
+        Pg0KICA8L09yZGVyQWNrPg0KPC9DVVNUT3JkZXJBY2s+
+    http_version:
+  recorded_at: Tue, 30 Sep 2014 17:45:44 GMT
+recorded_with: VCR 2.6.0
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://webservice-dev.mdsfulfillment.com/mds.order/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22%20encoding=%22UTF-8%22?%3E%0A%3CMDSOrder%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3COrder%3E%0A%20%20%20%20%3COrderID%3ER123NEW21%3C/OrderID%3E%0A%20%20%20%20%3CConsumerPONum%3ER123NEW21%3C/ConsumerPONum%3E%0A%20%20%20%20%3COrderDate%3E2014-02-03T17:29:15.219Z%3C/OrderDate%3E%0A%20%20%20%20%3CShippingMethod%3EUS%20UPS%20Two%20Day%3C/ShippingMethod%3E%0A%20%20%20%20%3CShipname%3EJoe%20Smith%3C/Shipname%3E%0A%20%20%20%20%3CShipAddress1%3E1234%20Awesome%20Street%3C/ShipAddress1%3E%0A%20%20%20%20%3CShipAddress2/%3E%0A%20%20%20%20%3CShipCity%3EHollywood%3C/ShipCity%3E%0A%20%20%20%20%3CShipState%3ECalifornia%3C/ShipState%3E%0A%20%20%20%20%3CShipCountry%3EUS%3C/ShipCountry%3E%0A%20%20%20%20%3CShipZip%3E90210%3C/ShipZip%3E%0A%20%20%20%20%3CShipEmail%3Espree@example.com%3C/ShipEmail%3E%0A%20%20%20%20%3CShipPhone%3E0000000000%3C/ShipPhone%3E%0A%20%20%20%20%3CBillname%3EJoe%20Smith%3C/Billname%3E%0A%20%20%20%20%3CBillAddress1%3E1234%20Awesome%20Street%3C/BillAddress1%3E%0A%20%20%20%20%3CBillAddress2/%3E%0A%20%20%20%20%3CBillCity/%3E%0A%20%20%20%20%3CBillState%3ECalifornia%3C/BillState%3E%0A%20%20%20%20%3CBillCountry%3EUS%3C/BillCountry%3E%0A%20%20%20%20%3CBillZip%3E90210%3C/BillZip%3E%0A%20%20%20%20%3CCSEmail%3Espree@example.com%3C/CSEmail%3E%0A%20%20%20%20%3CCSPhone%3E0000000000%3C/CSPhone%3E%0A%20%20%20%20%3CShippingCharge%3E10%3C/ShippingCharge%3E%0A%20%20%20%20%3CShippingTax%3E10%3C/ShippingTax%3E%0A%20%20%20%20%3CShippingTotal%3E10%3C/ShippingTotal%3E%0A%20%20%20%20%3CLines%3E%0A%20%20%20%20%20%20%3CLine%20number=%221%22%3E%0A%20%20%20%20%20%20%20%20%3CRetailerItemID%3EQTRZIM03%3C/RetailerItemID%3E%0A%20%20%20%20%20%20%20%20%3CCUSTItemID%3EQTRZIM03%3C/CUSTItemID%3E%0A%20%20%20%20%20%20%20%20%3CUPC%3EQTRZIM03%3C/UPC%3E%0A%20%20%20%20%20%20%20%20%3CQty%3E2%3C/Qty%3E%0A%20%20%20%20%20%20%20%20%3CPricePerUnit%3E100%3C/PricePerUnit%3E%0A%20%20%20%20%20%20%3C/Line%3E%0A%20%20%20%20%3C/Lines%3E%0A%20%20%3C/Order%3E%0A%3C/MDSOrder%3E%0A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      Set-Cookie:
+      - ASP.NET_SessionId=famemb3diqidmbfxa2mklyqt; path=/; HttpOnly
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 30 Sep 2014 17:49:55 GMT
+      Content-Length:
+      - '422'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxD
+        VVNUT3JkZXJBY2s+DQogIDxPcmRlckFjaz4NCiAgICA8T3JkZXJJRD5SMTIz
+        TkVXMjE8L09yZGVySUQ+DQogICAgPFN5c3RlbT48L1N5c3RlbT4NCiAgICA8
+        UmVzdWx0PjA8L1Jlc3VsdD4NCiAgICA8TWVzc2FnZT5DYW5ub3QgaW5zZXJ0
+        IGR1cGxpY2F0ZSBrZXkgcm93IGluIG9iamVjdCAnZGJvLk1EU19XZWJTZXJ2
+        aWNlX0ltcG9ydCcgd2l0aCB1bmlxdWUgaW5kZXggJ2luZHhfMDEnLiBUaGUg
+        ZHVwbGljYXRlIGtleSB2YWx1ZSBpcyAoQ0xJRU5UX0NPREUsIFIxMjNORVcy
+        MSwgMSkuDQpUaGUgc3RhdGVtZW50IGhhcyBiZWVuIHRlcm1pbmF0ZWQuPC9N
+        ZXNzYWdlPg0KICAgIDxMaW5lQ291bnQ+MTwvTGluZUNvdW50Pg0KICA8L09y
+        ZGVyQWNrPg0KPC9DVVNUT3JkZXJBY2s+
+    http_version:
+  recorded_at: Tue, 30 Sep 2014 17:49:55 GMT
 recorded_with: VCR 2.6.0
