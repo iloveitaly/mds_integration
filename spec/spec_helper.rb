@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
 require 'rack/test'
+require 'dotenv'
+Dotenv.load
 
 require 'simplecov'
 SimpleCov.start

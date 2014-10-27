@@ -72,4 +72,16 @@ describe MDSIntegration do
       end
     end
   end
+
+  describe 'POST /get_shipment_details' do
+    it 'returns the shipment details' do
+      VCR.use_cassette('order_details_R123456NEW') do
+        post '/get_shipment_details', request.merge(shipments: [{ id: 'R123456NEW' }]).to_json, {}
+
+        expect(last_response.status).to eq 200
+
+        expect(json_response['shipments']).to eq([{ 'id' => 'R123456NEW', 'email' => 'spree@example.com', 'items' => [{ 'product_id' => 'QTRZIM03' }] }])
+      end
+    end
+  end
 end

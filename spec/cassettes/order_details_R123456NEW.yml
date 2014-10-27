@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://webservice-dev.mdsfulfillment.com/mds.single.order.status/ReceiveXML.aspx?xml=%3C?xml%20version=%221.0%22%20encoding=%22UTF-8%22?%3E%0A%3CMDSSingleOrderStatus%20xml:lang=%22en-US%22%3E%0A%20%20%3CClientCode%3ECLIENT_CODE%3C/ClientCode%3E%0A%20%20%3CClientSignature%3ECLIENT_SIGNATURE%3C/ClientSignature%3E%0A%20%20%3COrder_Number%3ER123456NEW%3C/Order_Number%3E%0A%3C/MDSSingleOrderStatus%3E%0A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      Set-Cookie:
+      - ASP.NET_SessionId=fhokdktk1asm0rr22bhjg3tr; path=/; HttpOnly
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 27 Oct 2014 12:55:09 GMT
+      Content-Length:
+      - '1398'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxT
+        aW5nbGVPcmRlckFjaz4NCiAgPE9yZGVyRGV0YWlsPg0KICAgIDxDYWRlbmNl
+        X0lEPjwvQ2FkZW5jZV9JRD4NCiAgICA8T3JkZXJfU3RhdHVzPk5FVzwvT3Jk
+        ZXJfU3RhdHVzPg0KICAgIDxDYXJyaWVyX0NvZGU+PC9DYXJyaWVyX0NvZGU+
+        DQogICAgPFNoaXBwaW5nX1Rlcm1zPlVTIFVQUyBUd28gRGF5PC9TaGlwcGlu
+        Z19UZXJtcz4NCiAgICA8U2hpcF9Ub19DdXN0b21lcl9Db21wYW55PjwvU2hp
+        cF9Ub19DdXN0b21lcl9Db21wYW55Pg0KICAgIDxTaGlwX1RvX0N1c3RvbWVy
+        X05hbWU+Sm9lIFNtaXRoPC9TaGlwX1RvX0N1c3RvbWVyX05hbWU+DQogICAg
+        PFNoaXBfVG9fQ3VzdG9tZXJfQWRkcjE+MTIzNCBBd2Vzb21lIFN0cmVldDwv
+        U2hpcF9Ub19DdXN0b21lcl9BZGRyMT4NCiAgICA8U2hpcF9Ub19DdXN0b21l
+        cl9BZGRyMj48L1NoaXBfVG9fQ3VzdG9tZXJfQWRkcjI+DQogICAgPFNoaXBf
+        VG9fQ3VzdG9tZXJfWmlwPjwvU2hpcF9Ub19DdXN0b21lcl9aaXA+DQogICAg
+        PFNoaXBfVG9fQ3VzdG9tZXJfQ2l0eT5Ib2xseXdvb2Q8L1NoaXBfVG9fQ3Vz
+        dG9tZXJfQ2l0eT4NCiAgICA8U2hpcF9Ub19DdXN0b21lcl9TdGF0ZT5DYWxp
+        Zm9ybmlhPC9TaGlwX1RvX0N1c3RvbWVyX1N0YXRlPg0KICAgIDxTaGlwX1Rv
+        X0N1c3RvbWVyX0NvdW50cnlfQ29kZT5VUzwvU2hpcF9Ub19DdXN0b21lcl9D
+        b3VudHJ5X0NvZGU+DQogICAgPE9yZGVyRGF0ZT4wMi8wMy8yMDE0PC9PcmRl
+        ckRhdGU+DQogICAgPE9yZGVyTnVtYmVyPlIxMjM0NTZORVc8L09yZGVyTnVt
+        YmVyPg0KICAgIDxzaGlwdGVsZXBob25lPjAwMDAwMDAwMDA8L3NoaXB0ZWxl
+        cGhvbmU+DQogICAgPFBheW1lbnRNZXRob2Q+PC9QYXltZW50TWV0aG9kPg0K
+        ICAgIDxPcmRlclNvdXJjZT48L09yZGVyU291cmNlPg0KICAgIDxTaGlwRW1h
+        aWxBZGRyZXNzMT5zcHJlZUBleGFtcGxlLmNvbTwvU2hpcEVtYWlsQWRkcmVz
+        czE+DQogICAgPENoYXJnZV9UYXg+JDEwLjAwPC9DaGFyZ2VfVGF4Pg0KICAg
+        IDxDaGFyZ2Vfc2hpcHBpbmc+JDEwLjAwPC9DaGFyZ2Vfc2hpcHBpbmc+DQog
+        ICAgPGN1c3RvbWVyUE9OdW1iZXI+UjEyMzQ1Nk5FVzwvY3VzdG9tZXJQT051
+        bWJlcj4NCiAgICA8TGluZXM+DQogICAgICA8TGluZSBudW1iZXI9IjEiPg0K
+        ICAgICAgICA8c2t1PlFUUlpJTTAzPC9za3U+DQogICAgICAgIDxTaGlwX1F0
+        eT4yPC9TaGlwX1F0eT4NCiAgICAgICAgPERlc2NyaXB0aW9uMT48L0Rlc2Ny
+        aXB0aW9uMT4NCiAgICAgICAgPFJldGFpbF9QcmljZT4kMTAwLjAwPC9SZXRh
+        aWxfUHJpY2U+DQogICAgICA8L0xpbmU+DQogICAgPC9MaW5lcz4NCiAgICA8
+        VHJhY2tpbmcgLz4NCiAgPC9PcmRlckRldGFpbD4NCjwvU2luZ2xlT3JkZXJB
+        Y2s+
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 12:55:10 GMT
+recorded_with: VCR 2.6.0
