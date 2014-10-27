@@ -30,7 +30,7 @@ class MDSIntegration < EndpointBase::Sinatra::Base
     result status_from_response(response), response.message
   end
 
-  post '/get_order_details' do
+  post '/get_shipment_details' do
     order_ids = @payload[:orders].map { |order| order['id'] }
 
     response = MDS::Services::OrderDetails.new(@config).query(order_ids)

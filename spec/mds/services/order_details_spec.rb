@@ -9,8 +9,8 @@ describe MDS::Services::OrderDetails do
         response = subject.query %w[R123456NEW]
 
         expect(response.success?).to eq true
-        expect(response.message).to eq '1 orders were received.'
-        expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] }])
+        expect(response.message).to eq '1 shipments were received.'
+        expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] }])
       end
     end
 
@@ -20,7 +20,7 @@ describe MDS::Services::OrderDetails do
           response = subject.query %w[not-found]
 
           expect(response.success?).to eq true
-          expect(response.message).to eq '0 orders were received.'
+          expect(response.message).to eq '0 shipments were received.'
           expect(response.objects).to eq([])
         end
       end
@@ -33,9 +33,9 @@ describe MDS::Services::OrderDetails do
 
 
           expect(response.success?).to eq true
-          expect(response.message).to eq '2 orders were received.'
-          expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] },
-                                          { id: 'R123NEW21',  email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] }])
+          expect(response.message).to eq '2 shipments were received.'
+          expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] },
+                                          { id: 'R123NEW21',  email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] }])
         end
       end
     end

@@ -12,7 +12,7 @@ module MDS
       end
 
       def message
-        "#{objects.size} orders were received."
+        "#{objects.size} shipments were received."
       end
 
       def objects
@@ -22,7 +22,7 @@ module MDS
           {
             id: order['OrderNumber'],
             email: order['ShipEmailAddress1'],
-            line_items: line_items(order)
+            items: line_items(order)
           }
         end
       end
