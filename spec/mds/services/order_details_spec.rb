@@ -10,7 +10,7 @@ describe MDS::Services::OrderDetails do
 
         expect(response.success?).to eq true
         expect(response.message).to eq '1 orders were received.'
-        expect(response.objects).to eq([{ id: 'R123456NEW', line_items: [{ product_id: 'QTRZIM03' }] }])
+        expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] }])
       end
     end
 
@@ -34,8 +34,8 @@ describe MDS::Services::OrderDetails do
 
           expect(response.success?).to eq true
           expect(response.message).to eq '2 orders were received.'
-          expect(response.objects).to eq([{ id: 'R123456NEW', line_items: [{ product_id: 'QTRZIM03' }] },
-                                          { id: 'R123NEW21',  line_items: [{ product_id: 'QTRZIM03' }] }])
+          expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] },
+                                          { id: 'R123NEW21',  email: 'spree@example.com', line_items: [{ product_id: 'QTRZIM03' }] }])
         end
       end
     end

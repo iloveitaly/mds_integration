@@ -21,6 +21,7 @@ module MDS
         orders.map do |order|
           {
             id: order['OrderNumber'],
+            email: order['ShipEmailAddress1'],
             line_items: line_items(order)
           }
         end
