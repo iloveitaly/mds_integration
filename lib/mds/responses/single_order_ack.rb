@@ -25,15 +25,16 @@ module MDS
             items: line_items(order)
           }
         end
+
       end
 
       private
 
       def line_items(order)
-        line_items = order['Lines'].is_a?(Hash)? [order['Lines']] : Array(order['Lines'])
+        line_items = order['Lines']['Line'].is_a?(Hash)? [order['Lines']['Line']] : Array(order['Lines']['Line'])
         line_items.map do |line_item|
           {
-            product_id: line_item['Line']['sku']
+            product_id: line_item['sku']
           }
         end
       end
