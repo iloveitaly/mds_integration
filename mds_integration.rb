@@ -31,11 +31,11 @@ class MDSIntegration < EndpointBase::Sinatra::Base
   end
 
   post '/get_shipment_details' do
-    order_ids = @payload[:shipments].map { |shipment| shipment['id'] }
+    order_ids = Array(@payload[:shipment][:id])
 
     response = MDS::Services::OrderDetails.new(@config).query(order_ids)
 
-    add_value('shipments', response.objects)
+    response.objects.each { |shipment| add_object :shipment, shipment}
 
     result status_from_response(response), response.message
   end
