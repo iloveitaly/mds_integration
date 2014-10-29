@@ -80,7 +80,10 @@ describe MDSIntegration do
 
         expect(last_response.status).to eq 200
 
-        expect(json_response['shipments']).to eq([{ 'id' => 'R123456NEW', 'email' => 'spree@example.com', 'items' => [{ 'product_id' => 'QTRZIM03' }] }])
+        expect(json_response['shipments']).to eq([
+          { 'id' => 'R123456NEW', 'email' => 'spree@example.com',
+            'shipping_address' => { 'firstname' => 'Joe Smith', 'address1' => '1234 Awesome Street', 'address2' => nil, 'city' => 'Hollywood', 'state' => 'California', 'zipcode' => nil, 'country' => 'US' }, 'items' => [{ 'product_id' => 'QTRZIM03' }] }
+        ])
       end
     end
   end

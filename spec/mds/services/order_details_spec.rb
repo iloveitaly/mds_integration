@@ -10,7 +10,10 @@ describe MDS::Services::OrderDetails do
 
         expect(response.success?).to eq true
         expect(response.message).to eq '1 shipments were received.'
-        expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] }])
+        expect(response.objects).to eq([
+          { id: 'R123456NEW', email: 'spree@example.com',
+            shipping_address: { firstname: 'Joe Smith', address1: '1234 Awesome Street', address2: nil, city: 'Hollywood', state: 'California', zipcode: nil, country: 'US' }, items: [{ product_id: 'QTRZIM03' }] }
+        ])
       end
     end
 
@@ -34,8 +37,12 @@ describe MDS::Services::OrderDetails do
 
           expect(response.success?).to eq true
           expect(response.message).to eq '2 shipments were received.'
-          expect(response.objects).to eq([{ id: 'R123456NEW', email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] },
-                                          { id: 'R123NEW21',  email: 'spree@example.com', items: [{ product_id: 'QTRZIM03' }] }])
+          expect(response.objects).to eq([
+            { id: 'R123456NEW', email: 'spree@example.com',
+              shipping_address: { firstname: 'Joe Smith', address1: '1234 Awesome Street', address2: nil, city: 'Hollywood', state: 'California', zipcode: nil, country: 'US' }, items: [{ product_id: 'QTRZIM03' }] },
+            { id: 'R123NEW21',  email: 'spree@example.com',
+              shipping_address: { firstname: 'Joe Smith', address1: '1234 Awesome Street', address2: nil, city: 'Hollywood', state: 'California', zipcode: nil, country: 'US' }, items: [{ product_id: 'QTRZIM03' }] }
+          ])
         end
       end
     end
