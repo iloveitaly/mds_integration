@@ -52,7 +52,7 @@ module MDS
       def mds_url
         @test_mode == "1" ?
           "http://webservice-dev.mdsfulfillment.com" :
-          "https://webservice.mdsfulfillment.com"
+          "https://webservice-mdsfulfillment-com-egbv6zn5bzg8.runscope.net"
       end
     end
   end
