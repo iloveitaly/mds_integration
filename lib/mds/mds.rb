@@ -4,6 +4,7 @@ require_relative 'services/full_inventory'
 require_relative 'services/submit_order'
 require_relative 'services/shipping_status/tracking'
 require_relative 'services/order_details'
+require_relative 'services/shipping_detail'
 
 # responses
 require_relative 'responses/cust_order_ack'
