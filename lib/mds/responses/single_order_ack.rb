@@ -43,7 +43,8 @@ module MDS
         line_items = order['Lines']['Line'].is_a?(Hash)? [order['Lines']['Line']] : Array(order['Lines']['Line'])
         line_items.map do |line_item|
           {
-            product_id: line_item['sku']
+            product_id: line_item['sku'],
+            quantity: line_item['Ship_Qty']
           }
         end
       end
