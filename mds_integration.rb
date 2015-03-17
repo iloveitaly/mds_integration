@@ -35,6 +35,14 @@ class MDSIntegration < EndpointBase::Sinatra::Base
     result status_from_response(response), response.message
   end
 
+  post '/get_shipments_with_details' do
+    response = MDS::Services::ShippingDetail.new(@config).query
+    
+    response.objects.each { |shipment| add_object :shipment, shipment}
+
+    result status_from_response(response), response.message
+  end
+
   post '/get_inventory' do
     response = MDS::Services::FullInventory.new(@config).query
 
