@@ -30,7 +30,10 @@ module MDS
 
       def query(object = {})
         payload = builder(object).to_xml
-        xml_response = HTTParty.get("#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload))
+        xml_response = HTTParty.get(
+          "#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload),
+          debug_output: @test_mode == '1' ? $stdout : nil
+        )
         build_response_instance(xml_response)
       end
 
