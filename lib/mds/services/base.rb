@@ -20,6 +20,9 @@ module MDS
       end
 
       def initialize(credentials)
+        credentials[:client_code] ||= ENV['MDS_CLIENT_CODE'] if ENV['MDS_CLIENT_CODE'].present?
+        credentials[:client_signature] ||= ENV['MDS_CLIENT_SIGNATURE'] if ENV['MDS_CLIENT_SIGNATURE'].present?
+
         @client_code = credentials.fetch(:client_code)
         @client_signature = credentials.fetch(:client_signature)
         @test_mode = credentials.fetch(:test_mode, "1")
@@ -27,7 +30,10 @@ module MDS
 
       def query(object = {})
         payload = builder(object).to_xml
-        xml_response = HTTParty.get("#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload))
+        xml_response = HTTParty.get(
+          "#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload),
+          debug_output: @test_mode == '1' ? $stdout : nil
+        )
         build_response_instance(xml_response)
       end
 
