@@ -22,6 +22,7 @@ module MDS
       def initialize(credentials)
         credentials[:client_code] ||= ENV['MDS_CLIENT_CODE'] if ENV['MDS_CLIENT_CODE'].present?
         credentials[:client_signature] ||= ENV['MDS_CLIENT_SIGNATURE'] if ENV['MDS_CLIENT_SIGNATURE'].present?
+        credentials[:test_mode] ||= ENV['MDS_TEST_MODE'] if ENV['MDS_TEST_MODE'].present?
 
         @client_code = credentials.fetch(:client_code)
         @client_signature = credentials.fetch(:client_signature)
