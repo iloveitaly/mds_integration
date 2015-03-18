@@ -18,7 +18,7 @@ module MDS
       # wombat shipping documentation: https://support.wombat.co/hc/en-us/articles/202319984-Shipments
 
       def objects
-        orders = body["Order"]
+        orders = body["Order"] || []
 
         orders.map do |order|
           # TODO this assumes that there is one box per shipment; should check for Hash vs Array to ensure
