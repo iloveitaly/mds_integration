@@ -5,13 +5,13 @@ module MDS
 
       set_xml_root    'MDSOrder'
       set_url_package 'mds.order'
-
+      
       def builder(shipment)
         xml_builder do |xml|
           xml.Order do
             xml.OrderID         shipment[:id]
             xml.ConsumerPONum   shipment[:id]
-            xml.OrderDate       shipment[:placed_on]
+            xml.OrderDate       DateTime.parse(shipment[:placed_on]).strftime('%F %R')
             xml.ShippingMethod  shipment[:shipping_method]
             xml.Shipname        "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
             xml.ShipAddress1    shipment[:shipping_address][:address1]
