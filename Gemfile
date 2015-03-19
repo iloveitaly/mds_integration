@@ -10,6 +10,9 @@ gem 'nokogiri'
 gem 'httparty'
 gem 'simplecov'
 
+gem 'honeybadger'
+gem 'airbrake'
+
 group :development do
   gem 'pry'
   gem 'shotgun'
