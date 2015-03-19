@@ -17,6 +17,10 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    airbrake (4.1.0)
+      builder
+      multi_json
+    builder (3.2.2)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
@@ -31,6 +35,7 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    honeybadger (2.0.9)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -102,9 +107,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   dotenv
   endpoint_base!
   foreman
+  honeybadger
   httparty
   nokogiri
   pry
