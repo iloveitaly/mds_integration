@@ -5,6 +5,18 @@ require_relative 'lib/mds/mds'
 
 class MDSIntegration < EndpointBase::Sinatra::Base
   set :logging, true
+  
+  Airbrake.configure do |config|
+    config.api_key = ENV['AIRBRAKE_API']
+    config.host    = ENV['AIRBRAKE_HOST'] if ENV['AIRBRAKE_HOST'].present?
+    config.port    = ENV['AIRBRAKE_PORT'] if ENV['AIRBRAKE_PORT'].present?
+    config.secure  = config.port == 443
+  end if ENV['AIRBRAKE_API'].present?
+  
+  Honeybadger.configure do |config|
+    config.api_key = ENV['HONEYBADGER_KEY']
+    config.environment_name = ENV['RACK_ENV']
+  end if ENV['HONEYBADGER_KEY'].present?
 
   post '/add_shipment' do
     if @payload[:shipment][:status] == "shipped"
