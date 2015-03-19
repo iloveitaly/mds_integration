@@ -28,9 +28,15 @@ module MDS
           {
             id: order["OrderID"],
             mds_id: order["CadenceID"],
+            # TODO does this API return anything aside from 'shipped'?
             status: 'shipped',
             tracking: order_box["TrackingNumber"],
             shipped_at: parse_date(order_box["OrderShipDate"]),
+            
+            # when a shipment is split, it contains a "-" after the shipment ID. Ex: 774150-1
+            # adding a boolean flag allows us to easily adjust the shipment flows to exclude partial shipments
+            partial_shipment: order['OrderID'].include?('-'),
+            
             items: skus_to_line_items(order_box["SKU"])
           }
         end
