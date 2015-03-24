@@ -1,6 +1,11 @@
 worker_processes ENV.fetch('WORKER_PROCESSES', 5).to_i
 timeout 180
 
+if File.writable?("/var/log/unicorn.stderr.log")
+  stderr_path "/var/log/unicorn.stderr.log"
+  stdout_path "/var/log/unicorn.stdout.log"
+end
+
 preload_app true
 
 GC.respond_to?(:copy_on_write_friendly=) and  GC.copy_on_write_friendly = true
