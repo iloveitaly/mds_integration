@@ -14,6 +14,7 @@ module MDS
             xml.OrderDate       DateTime.parse(shipment[:placed_on]).strftime('%F %R')
             xml.ShippingMethod  shipment[:shipping_method]
             xml.Shipname        "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
+            xml.ShipCompany     shipment[:shipping_address][:company]
             xml.ShipAddress1    shipment[:shipping_address][:address1]
             xml.ShipAddress2    shipment[:shipping_address][:address2]
             xml.ShipCity        shipment[:shipping_address][:city]
