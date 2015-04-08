@@ -18,7 +18,7 @@ module MDS
       def objects
         orders = body['Order'].is_a?(Hash) ? [body['Order']] : body['Order']
 
-        orders.to_a.map do |order|
+        orders.to_a.sort_by { |o| o["TrackingNumber"] }.map do |order|
           {
             id: order["OrderID"],
             status: "shipped",
