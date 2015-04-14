@@ -8,6 +8,10 @@ module MDS
       
       def builder(shipment)
         xml_builder do |xml|
+          if shipment[:shipping_address][:company]
+            shipment[:shipping_address][:company].gsub!('&', '%26amp;')
+          end
+          
           xml.Order do
             xml.OrderID         shipment[:id]
             xml.ConsumerPONum   shipment[:id]
