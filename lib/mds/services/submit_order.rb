@@ -11,13 +11,16 @@ module MDS
           if shipment[:shipping_address][:company]
             shipment[:shipping_address][:company].gsub!('&', '%26amp;')
           end
-          
+
+          ship_name = "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
+          ship_name.gsub!('&', '%26amp;')
+
           xml.Order do
             xml.OrderID         shipment[:id]
             xml.ConsumerPONum   shipment[:id]
             xml.OrderDate       DateTime.parse(shipment[:placed_on]).strftime('%F %R')
             xml.ShippingMethod  shipment[:shipping_method]
-            xml.Shipname        "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
+            xml.Shipname        ship_name
             xml.ShipCompany     shipment[:shipping_address][:company]
             xml.ShipAddress1    shipment[:shipping_address][:address1]
             xml.ShipAddress2    shipment[:shipping_address][:address2]
