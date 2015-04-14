@@ -1,13 +1,16 @@
 worker_processes ENV.fetch('WORKER_PROCESSES', 5).to_i
 timeout 180
 
+if File.writable?("/var/log/unicorn.stderr.log")
+  stderr_path "/var/log/unicorn.stderr.log"
+  stdout_path "/var/log/unicorn.stdout.log"
+end
+
 preload_app true
 
 GC.respond_to?(:copy_on_write_friendly=) and  GC.copy_on_write_friendly = true
 
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
-
   # kills old children after zero downtime deploy
   old_pid = "#{server.config[:pid]}.oldbin"
   if old_pid != server.pid
@@ -19,10 +22,4 @@ before_fork do |server, worker|
   end
 
   sleep 1
-end
-
-after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
-
-  defined?(Rails) and Rails.cache.respond_to?(:reconnect) and Rails.cache.reconnect
 end
