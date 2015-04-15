@@ -8,12 +8,10 @@ module MDS
       
       def builder(shipment)
         xml_builder do |xml|
-          if shipment[:shipping_address][:company]
-            shipment[:shipping_address][:company].gsub!('&', '%26amp;')
-          end
+          fix_encoding(shipment[:shipping_address][:company])
 
           ship_name = "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
-          ship_name.gsub!('&', '%26amp;')
+          fix_encoding(ship_name)
 
           xml.Order do
             xml.OrderID         shipment[:id]
@@ -68,7 +66,10 @@ module MDS
       def setup_billing_information(xml, shipment)
         billing_address = shipment[:billing_address] || shipment[:shipping_address]
 
-        xml.Billname        "#{billing_address[:firstname]} #{billing_address[:lastname]}"
+        bill_name = "#{billing_address[:firstname]} #{billing_address[:lastname]}"
+        fix_encoding(bill_name)
+
+        xml.Billname        bill_name
         xml.BillAddress1    billing_address[:address1]
         xml.BillAddress2    billing_address[:address2]
         xml.BillCity        billing_address[:city]
@@ -76,6 +77,15 @@ module MDS
         xml.BillCountry     billing_address[:country]
         xml.BillZip         billing_address[:zipcode]
       end
+
+      protected
+
+        # MDS has some strange encoding requirements because of the frameworks they are using
+        def fix_encoding(string)
+          return if string.blank?
+
+          string.gsub!('&', '%26amp;')
+        end
     end
   end
 end
