@@ -32,7 +32,7 @@ module MDS
       end
 
       def query(object = {})
-        payload = builder(object).to_xml
+        payload = builder(object).to_xml(save_with: Nokogiri::XML::Node::SaveOptions::AS_XML)
         xml_response = HTTParty.get(
           "#{mds_url}/#{self.class.url_package}/ReceiveXML.aspx?xml=" + URI.encode(payload),
           debug_output: @debug_mode == '1' ? $stdout : nil
