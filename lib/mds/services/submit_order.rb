@@ -5,13 +5,11 @@ module MDS
 
       set_xml_root    'MDSOrder'
       set_url_package 'mds.order'
-      
+
       def builder(shipment)
         xml_builder do |xml|
-          fix_encoding(shipment[:shipping_address][:company])
-
           ship_name = "#{shipment[:shipping_address][:firstname]} #{shipment[:shipping_address][:lastname]}"
-          fix_encoding(ship_name)
+          ship_name = fix_encoding(ship_name)
 
           xml.Order do
             xml.OrderID         shipment[:id]
@@ -19,9 +17,9 @@ module MDS
             xml.OrderDate       DateTime.parse(shipment[:placed_on]).strftime('%F %R')
             xml.ShippingMethod  shipment[:shipping_method]
             xml.Shipname        ship_name
-            xml.ShipCompany     shipment[:shipping_address][:company]
-            xml.ShipAddress1    shipment[:shipping_address][:address1]
-            xml.ShipAddress2    shipment[:shipping_address][:address2]
+            xml.ShipCompany     fix_encoding(shipment[:shipping_address][:company])
+            xml.ShipAddress1    fix_encoding(shipment[:shipping_address][:address1])
+            xml.ShipAddress2    fix_encoding(shipment[:shipping_address][:address2])
             xml.ShipCity        shipment[:shipping_address][:city]
             xml.ShipState       shipment[:shipping_address][:state]
             xml.ShipCountry     shipment[:shipping_address][:country]
@@ -67,11 +65,11 @@ module MDS
         billing_address = shipment[:billing_address] || shipment[:shipping_address]
 
         bill_name = "#{billing_address[:firstname]} #{billing_address[:lastname]}"
-        fix_encoding(bill_name)
+        bill_name = fix_encoding(bill_name)
 
         xml.Billname        bill_name
-        xml.BillAddress1    billing_address[:address1]
-        xml.BillAddress2    billing_address[:address2]
+        xml.BillAddress1    fix_encoding(billing_address[:address1])
+        xml.BillAddress2    fix_encoding(billing_address[:address2])
         xml.BillCity        billing_address[:city]
         xml.BillState       billing_address[:state]
         xml.BillCountry     billing_address[:country]
@@ -82,9 +80,9 @@ module MDS
 
         # MDS has some strange encoding requirements because of the frameworks they are using
         def fix_encoding(string)
-          return if string.blank?
+          return string if string.blank?
 
-          string.gsub!('&', '%26amp;')
+          string.gsub('&', '%26amp;')
         end
     end
   end
